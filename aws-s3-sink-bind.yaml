@@ -1,0 +1,30 @@
+apiVersion: camel.apache.org/v1alpha1
+kind: KameletBinding
+metadata:
+  name: aws-s3-sink-binding
+spec:
+  source:
+    ref:
+      kind: Kamelet
+      apiVersion: camel.apache.org/v1
+      name: kafka-source
+    properties:
+      bootstrapServers: "minimal-prod-ibm-es-kp-bootstrap.rajan-es1.svc:9092"
+      topic: test13
+      securityProtocol: "PLAINTEXT"
+      saslMechanism: "PLAIN"
+      password: "testpassword"
+      user: "testuser"
+  sink:
+    ref:
+      kind: Kamelet
+      apiVersion: camel.apache.org/v1alpha1
+      name: aws-s3-sink
+    properties:
+      bucketNameOrArn: cloud-object-storage-eventstream
+      region: ap-south-1
+      accessKey: 040e3046d4ac04c49d476cd635
+      secretKey: 4d995cb0d20802cb1154b7cefbfb0cf7
+      overrideEndpoint: true
+      uriEndpointOverride: https://s3.jp-tok.cloud-object-storage.appdomain.cloud
+

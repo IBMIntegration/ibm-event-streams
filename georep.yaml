@@ -1,0 +1,10 @@
+kind: EventStreamsGeoReplicator
+apiVersion: eventstreams.ibm.com/v1beta1
+metadata:
+  labels:
+    eventstreams.ibm.com/cluster: minimal-prod
+  name: minimal-prod
+  namespace: rajan-es1-backup
+spec:
+  replicas: 1
+  version: latest
