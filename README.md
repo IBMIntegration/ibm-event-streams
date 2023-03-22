@@ -9,4 +9,4 @@ Option to used will be based on the requirements.
 
 A brief comparison of the 3 methods.
 
-![](images/)
+![](images/6.jpg)
