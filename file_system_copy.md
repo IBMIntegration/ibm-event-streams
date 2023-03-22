@@ -17,7 +17,7 @@ Make a backup of a source Event Streams. The backup should include all topics da
 	> mkdir /Users/rajan/Downloads/copy_backup/topic-3p-2r  
 
 2. From the OpenShift Console, check the location of the data.  
-> View the <ES-INSTANCE-NAME>-kafka-config configmap. [E.g. minimal-prod-kafka-config ].  
+> View the \<ES-INSTANCE-NAME>-kafka-config configmap. [E.g. minimal-prod-kafka-config ].  
 > Look for the entry:   
 > log.dirs=/var/lib/kafka/data/kafka-log${STRIMZI\_BROKER\_ID}.  
 > e.g. /var/lib/kafka/data/kafka-log0/
