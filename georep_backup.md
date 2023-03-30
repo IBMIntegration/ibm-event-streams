@@ -6,35 +6,47 @@ Make a backup of a source Event Streams. The backup should include all topics da
 
 ## Pre-requisite
 
-1. Should have a backup Kafka Cluster - preferably in same verions as source. 
+1. Should have a backup Kafka Cluster - preferably in same version as source. 
 2. KafkaConnect Cluster not needed. 
 
 ## Setup and Start MM2
 
 ### To be done in Target EventStreams Namespace
-1. From the OpenShift console, Create a GeoReplication instance in the target EventStreams namespace. You can use the sample yaml file provided [here](./georep.yaml)
+1. From the OpenShift console, Create a GeoReplication instance in the target EventStreams namespace.  Go to Installed Operators -> IBM Event Streams -> Geo-Replicator -> Create EventStreamsGeoReplicator.   
+You can use the sample yaml file provided [here](./georep.yaml).  
+
 2. Take note of the following when creating the GeoRep CR file:   
 
 	> The name of the GeoRep must match the name of ES in the Target EventStreams.   
 	The label should also point to the target EventStreams.   
 
+![](images/7.jpg)
 When the process is complete, you should see a MirrorMaker2 instance pod in the target namespace. This may take a few minutes to appear.   
 
-3. Make sure the min.insync.replicas is set to 1 in the target Kafka. This should be sufficient as the target Kafka is only used as backup. However, if you are planning for automated failover to the target cluster, then, you may have to change the number of replicas in the MM2 CR to a suitable value. 
+	oc -n <namespace> get pods  | grep mirrormaker
+
+
+3. Make sure the min.insync.replicas is set to 1 in the target Kafka. This should be sufficient as the target Kafka is only used as backup. However, if you are planning for automated failover to the target cluster, then, you may have to change the number of replicas in the MM2 CR to a suitable value.  
+Go to Installed Operators -> IBM Event Streams -> Event Streams -> Open the installed instance (yaml view).   
+
+	> 	min.insync.replicas: 1  
+	Save the CR.
+
 4. From the EventStreams portal, Go to    
 `Home -> Connect to this cluster -> Geo Replication `.  
 `Choose "I want this cluster to be able to receive topics from another cluster"`
 Copy the generated config. 
+![](images/8.jpg)
 
 ### To be done in Source EventSreams Namespace
 
-1. From the EventStreams portal, Go to    
+1. From the EventStreams portal in the source machine, Go to    
 `Home -> Connect to this cluster -> Geo Replication `.  
 `Choose "I want to replicate topics from this cluster to another cluster"`.  
 Paste the copied config. 
 
 2. The config should be validated and you should see a green tick to confirm that the config data is valid.    
-![](images/1.jpg)
+![](images/9.jpg)
 
 3. Click on "Connect Cluster".  
 
