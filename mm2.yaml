@@ -1,0 +1,36 @@
+kind: KafkaMirrorMaker2
+apiVersion: kafka.strimzi.io/v1beta2
+metadata:
+  name: my-mm2-cluster
+  namespace: rajan-es3
+spec:
+  version: 3.3.1
+  replicas: 1
+  connectCluster: my-cluster-target
+  clusters:
+    - alias: my-cluster-source
+      bootstrapServers: 'minimal-prod-ibm-es-kp-bootstrap.rajan-es1.svc:9092'
+    - alias: my-cluster-target
+      bootstrapServers: 'devel4-kafka-bootstrap.rajan-es3.svc:9092'
+      config:
+        config.storage.replication.factor: 3
+        offset.storage.replication.factor: 3
+        status.storage.replication.factor: 3
+  mirrors:
+    - sourceCluster: my-cluster-source
+      targetCluster: my-cluster-target
+      sourceConnector:
+        config:
+          replication.factor: 3
+          offset-syncs.topic.replication.factor: 3
+          sync.topic.acls.enabled: 'false'
+          replication.policy.class: org.apache.kafka.connect.mirror.IdentityReplicationPolicy
+      checkpointConnector:
+        config:
+          checkpoints.topic.replication.factor: 3
+          emit.checkpoints.enabled: true
+          refresh.groups.interval.seconds: 60
+          sync.group.offsets.enabled: true
+          replication.policy.class: org.apache.kafka.connect.mirror.IdentityReplicationPolicy
+      topicsPattern: test11
+      groupsPattern: .*

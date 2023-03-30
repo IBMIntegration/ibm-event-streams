@@ -9,7 +9,7 @@ Make a backup of a source Event Streams. The backup should include all topics da
 1. Should have a backup Kafka Cluster - preferably in same version as source. 
 2. KafkaConnect Cluster not needed. 
 
-## Setup and Start MM2
+## Setup and Start Geo-Rep
 
 ### To be done in Target EventStreams Namespace
 1. From the OpenShift console, Create a GeoReplication instance in the target EventStreams namespace.  Go to Installed Operators -> IBM Event Streams -> Geo-Replicator -> Create EventStreamsGeoReplicator.   
