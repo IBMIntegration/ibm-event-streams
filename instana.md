@@ -15,7 +15,7 @@ View Kafka metrics in Instana.
 
 
 1. We need to obtain some details from Instana. This information will be used when installing the Instana agent in the Openshift Cluster.    
-You can use any existing Instana environment. Foir this demo, I'll be using a Instana Sandbox service.   
+You can use any existing Instana environment. For this demo, I'll be using a Instana Sandbox service.   
 The URL of the Instana to be used: [https://ibmdevsandbox-instanaibm.instana.io/](https://ibmdevsandbox-instanaibm.instana.io/).  
 
 2. Open the Instana portal. 
@@ -63,7 +63,7 @@ Go to Operator Hub and install the Instana operator. Install in "All Namespaces"
 		    key: xxxxxxxxxxxxxxxxx
 
 Click on "Create Instance".   
-Wait for the agent to be started. There shold be a few agent pods in running state.  
+Wait for the agent to be started. There should be a few agent pods in running state.  
 
 	oc -n instana-agent get pods
 
