@@ -1,0 +1,23 @@
+apiVersion: instana.io/v1
+kind: InstanaAgent
+metadata:
+  name: instana-agent
+  namespace: instana-agent
+spec:
+  agent:
+    env: {}
+    configuration_yaml: |
+      com.instana.plugin.kafka:
+        enabled: true
+        collectLagData: true      
+        sslTrustStore: '/path/to/truststore.jks'
+        sslTrustStorePassword: 'kafkaTsPassword'
+        sslKeyStore: '/path/to/sslKeyStoreFile.jks'
+        sslKeyStorePassword: 'kafkaKsPassword'
+    endpointHost: ingress-orange-saas.instana.io
+    endpointPort: '443'
+    key: uxxxxxxxxxxxx
+  zone:
+    name: edited-zone
+  cluster:
+    name: rajan-ocp-cluster
