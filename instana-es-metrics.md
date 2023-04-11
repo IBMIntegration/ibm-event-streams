@@ -1,4 +1,4 @@
-# Setting up ES to be monitored from Instana
+# Monitoring ES from Instana
 
 
 ## Objectives
