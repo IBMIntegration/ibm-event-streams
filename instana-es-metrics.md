@@ -68,7 +68,7 @@ Topics (with summary of Bytes in/out).
 ![](images/37.jpg)
 
 ## Setup Alerts
-Instana supoprts sending alerts based on events.   
+Instana supports sending alerts based on events.   
 The steps for setting up alerts:   
 
 * Define a alerting Channel.   
@@ -91,7 +91,7 @@ This is where we need to create the event that needs to be alerted. As an exampl
 For more information on  [Dynamic Focus Query](https://www.ibm.com/docs/en/instana-observability/current?topic=instana-filtering-dynamic-focus#syntax)    
 
 ### Create Custom Payloads 
-This step is optional. You can inlcude some additional information in the alert body.   
+This step is optional. You can include some additional information in the alert body.   
 Settings -> Custom Payload -> Add Row.   
 ![](images/44.jpg)
 
