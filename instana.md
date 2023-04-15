@@ -70,7 +70,7 @@ Wait for the agent to be started. There should be a few agent pods in running st
 ![](images/30.jpg)
 
 
-*Note: The agent will connect to Kafka on the unsecured listener by default. If your Kafka does not have one, you can use a Mutual TLS enabled listener. Refer [here](./instana-agent-mtls.yaml) for a sample yaml.   *
+*Note: The agent will connect to Kafka on the unsecured listener by default. If your Kafka does not have one, you can use a Mutual TLS enabled listener. Refer [here](./instana-agent-mtls.yaml) for a sample yaml. This connection is required for gathering consumer lags related metrics.    *
 
 ## Check the Agent from Instana portal.
 
@@ -90,6 +90,7 @@ You can also look at the Infrastructure analytics (which is still in Beta).
 5. Pick your Kafka Cluster. 
 
 Browse through the page and look for the following details.
+[https://ibmintegration.github.io/ibm-event-streams/instana-es-metrics.html](https://ibmintegration.github.io/ibm-event-streams/instana-es-metrics.html)
 
 
 
