@@ -61,6 +61,14 @@ Go to Operator Hub and install the Instana operator. Install in "All Namespaces"
 		    endpointPort: '443'
 		    endpointHost: ingress-orange-saas.instana.io
 		    key: xxxxxxxxxxxxxxxxx
+		    
+		Include a name for the cluster to be identified from Instana.   
+		  zone:
+           name: edited-zone
+         cluster:
+           name: rajan-ocp-cluster
+           
+               
 
 Click on "Create Instance".   
 Wait for the agent to be started. There should be a few agent pods in running state.  
