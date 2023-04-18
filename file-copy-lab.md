@@ -41,7 +41,7 @@ Make a backup of a source Event Streams topic by copying its log folder.
 	| obi-wan  | [https://es-demo-ibm-es-ui-cp4i-eventstreams.apps.obi-wan.coc-ibm.com/](https://es-demo-ibm-es-ui-cp4i-eventstreams.apps.obi-wan.coc-ibm.com/)  |
 	| jarjar  |  [https://es-demo-ibm-es-ui-cp4i-eventstreams.apps.jarjar.coc-ibm.com/](https://es-demo-ibm-es-ui-cp4i-eventstreams.apps.jarjar.coc-ibm.com/) |
 
-	Login to the EventStream Portal. At the point where you need to choose the "Authentication Type" -> Choose "Enterorise LDAP" and login with the same credentials as the one used for OpenShift Console.   
+	Login to the EventStream Portal. At the point where you need to choose the "Authentication Type" -> Choose "Enterprise LDAP" and login with the same credentials as the one used for OpenShift Console.   
 	Upon login, check if a topic that has the same name as your login-id exists in the list.   
 
 3. Access to a backup EventStreams Cluster.   
@@ -61,7 +61,7 @@ Make a backup of a source Event Streams topic by copying its log folder.
    Enter your credentials (if asked), then, click on "Display Token".  Copy the "Login with this token" string.   
    ![](images/52.jpg)    
    
-	Paste the string in Terminal / CMD / PowerShell terminal. You should be logged in and be abkle to see the projects that you have access to.   
+	Paste the string in Terminal / CMD / PowerShell terminal. You should be logged in and be able to see the projects that you have access to.   
 	
 	![](images/53.jpg).  
 	
@@ -69,7 +69,7 @@ Make a backup of a source Event Streams topic by copying its log folder.
 
 	Use this command to check the files related to your topic.     
 
-	oc -n <NAMESPACE> exec -it <KAFKA-POD-NAME> -c kafka -- ls -lrt /var/lib/kafka/data/kafka-log<BROKER-ID>/<USER-ID>-<PARTITION-ID>.   
+	oc -n <NAMESPACE> exec -it <KAFKA-POD-NAME> -c kaka -- ls -lrt /var/lib/kafka/data/kafka-log<BROKER-ID>/<USER-ID>-<PARTITION-ID>.   
 	> NAMESPACE = cp4i-eventstreams.  
 	> KAFKA-POD-NAME = es-demo-kafka-0.  
 	> BROKER_ID = 0   
@@ -93,12 +93,12 @@ Make a backup of a source Event Streams topic by copying its log folder.
 
 	*Ignore any "rsysnc not available in container" errors.   
 	If you see "unexpected EOF" errors, simple re-run the same command again.   *.  
-	If the copying was sucessful, you should see something like this.   
+	If the copying was successful, you should see something like this.   
 	![](images/56.jpg).  
 	
 1. **IMPORTANT:**	Filter unwanted files in the backed up folder.   
-	"oc rsync" does not provide a mechanism to filter files that needs to be copied. So, it has to be done manually. Files like checkpoint and metadata will bve created by Kafka as needed. So, delete them.    
-	In the backup folder,  you should onle have file with the following extension:   
+	"oc rsync" does not provide a mechanism to filter files that needs to be copied. So, it has to be done manually. Files like checkpoint and metadata will be created by Kafka as needed. So, delete them.    
+	In the backup folder,  you should only have file with the following extension:   
 	
 		*.index.  
 		*.log.  
@@ -126,7 +126,7 @@ Make a backup of a source Event Streams topic by copying its log folder.
 
 	`oc -n cp4i-dest-eventstreams rsync /Users/rajan/Downloads/lab/mytopic/jarjar17-0 dest-es-kafka-0:/var/lib/kafka/data/kafka-log0/`
 
-	If the copying was sucessful, you should see something like this.  
+	If the copying was successful, you should see something like this.  
 	![](images/57.jpg)
 		
 2. Let the target Kafka know about the new topic and it's partition location. This is an important step where we will have to notify kafka about the mapping of the partition and broker.   
@@ -150,7 +150,7 @@ Make a backup of a source Event Streams topic by copying its log folder.
 	You should get a confirmation that the topic was created.   
 	
 1. You can now check the Destination Kafka and ensure the messages are properly restored. For example, you can check the last offset of the source and target Kafka.  
-This is the [Target EventStrerams](https://dest-es-ibm-es-ui-cp4i-dest-eventstreams.apps.jarjar.coc-ibm.com/topics)
+This is the [Target EventStreams](https://dest-es-ibm-es-ui-cp4i-dest-eventstreams.apps.jarjar.coc-ibm.com/topics)
 Check restored messages there. 
 
 
