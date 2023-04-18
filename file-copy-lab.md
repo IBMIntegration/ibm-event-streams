@@ -1,4 +1,4 @@
-# LAB - Backup EventStreams Using By Copying Logs Folder
+# LAB - Backup EventStreams By Copying Logs Folder
 
 ## Objective
 Make a backup of a source Event Streams topic by copying its log folder.  
