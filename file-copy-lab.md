@@ -62,8 +62,11 @@ Make a backup of a source Event Streams topic by copying its log folder.
    ![](images/52.jpg)    
    
 	Paste the string in Terminal / CMD / PowerShell terminal. You should be logged in and be able to see the projects that you have access to.   
-	
-	![](images/53.jpg).  
+	If you get any certificate invalid type of errors, try adding this at the end of the "oc login" string:   
+	`--insecure-skip-tls-verify=true`   
+		
+	![](images/53.jpg)    
+
 	
 1. 	Check for files in the broker.
 
