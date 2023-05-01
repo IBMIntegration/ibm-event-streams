@@ -73,7 +73,7 @@ Make a backup of a source Event Streams topic by copying its log folder.
 	> NAMESPACE = cp4i-eventstreams.  
 	> KAFKA-POD-NAME = es-demo-kafka-0.  
 	> BROKER_ID = 0   
-	> USER-ID = YOUR USER-ID.
+	> USER-ID = YOUR USER-ID.  
 	> PARTITION-ID = 0 [topic only has a single partition].   
 	
 	Example:   
@@ -119,7 +119,7 @@ Make a backup of a source Event Streams topic by copying its log folder.
 	> DEST-NAMESPACE = cp4i-dest-eventstreams.  
 	> KAFKA-POD-NAME = dest-es-kafka-0.  
 	> BROKER_ID = 0   
-	> USER-ID = YOUR USER-ID.
+	> USER-ID = YOUR USER-ID.   
 	> PARTITION-ID = 0 [topic only has a single partition].   
 	
 	Example:   
