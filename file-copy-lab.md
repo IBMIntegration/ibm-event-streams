@@ -151,7 +151,7 @@ Make a backup of a source Event Streams topic by copying its log folder.
 	
 1. You can now check the Destination Kafka and ensure the messages are properly restored. For example, you can check the last offset of the source and target Kafka.  
 This is the [Target EventStreams](https://dest-es-ibm-es-ui-cp4i-dest-eventstreams.apps.jarjar.coc-ibm.com/topics)
-Check restored messages there. 
+Check restored messages there.   
 
 
 
