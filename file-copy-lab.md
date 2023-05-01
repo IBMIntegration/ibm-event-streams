@@ -69,7 +69,7 @@ Make a backup of a source Event Streams topic by copying its log folder.
 
 	Use this command to check the files related to your topic.     
 
-	oc -n <NAMESPACE> exec -it <KAFKA-POD-NAME> -c kaka -- ls -lrt /var/lib/kafka/data/kafka-log<BROKER-ID>/<USER-ID>-<PARTITION-ID>.   
+	oc -n \<NAMESPACE> exec -it \<KAFKA-POD-NAME> -c kafka -- ls -lrt /var/lib/kafka/data/kafka-log\<BROKER-ID>/\<USER-ID>-\<PARTITION-ID>.   
 	> NAMESPACE = cp4i-eventstreams.  
 	> KAFKA-POD-NAME = es-demo-kafka-0.  
 	> BROKER_ID = 0   
@@ -85,7 +85,7 @@ Make a backup of a source Event Streams topic by copying its log folder.
 	![](images/55.jpg).  
 
 1. Copy the files of the topic to your laptop.   
-	Command: oc -n <NAMESPACE> rsync <KAFKA-POD-NAME>:/var/lib/kafka/data/kafka-log<BROKER-ID>/<USER-ID>-<PARTITION-ID> /Users/rajan/Downloads/lab/mytopic/.
+	Command: oc -n \<NAMESPACE> rsync \<KAFKA-POD-NAME>:/var/lib/kafka/data/kafka-log\<BROKER-ID>/\<USER-ID>-\<PARTITION-ID> /Users/rajan/Downloads/lab/mytopic/.
 	
 	Example of command.   
 	
