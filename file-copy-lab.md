@@ -145,10 +145,10 @@ Make a backup of a source Event Streams topic by copying its log folder.
 	
 	`oc -n cp4i-dest-eventstreams exec -ti dest-es-kafka-0 -- bin/kafka-topics.sh --bootstrap-server localhost:9092 --create --topic jarjar17 --replica-assignment 0 --config retention.ms=-1`.   
 	
-	> 	Explanation of the command:   
-	> **replica-assignment** - to point the leader and replica for each partition.      
-	> **config retention** - this is the retention period of the messages in topic. A '-1 ' means, no expiry period. This is to ensure older messages do not get deleted.   
-> 
+	> Explanation of the command:   
+	> replica-assignment - to point the leader and replica for each partition.      
+	> config retention - this is the retention period of the messages in topic. A '-1 ' means, no expiry period. This is to ensure older messages do not get deleted.   
+
 
 	You should get a confirmation that the topic was created.   
 	
