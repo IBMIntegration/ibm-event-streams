@@ -21,50 +21,43 @@ Make a replication of a source Kafka (Not Event Streams) to an EventStreams Kafk
 
 Take note of the topic name, consumer group, consumer lags and last offset message. 
 
-![](./images/21.png)
+![](./images/21.jpg)
 
 ![](./images/22.png)
 
 
 
 2. Create a MM2 CR.   
+Download the sample yaml file from  [here](./mm2.yaml).   
+Edit the yaml and replace all instances of \<student-id> with your actual student-id.    
+Take a look and understand the following important fields (no changes needed)   
+
+		sync.group.offsets.enabled: should be true to replicate consumer lags.  
+		Source bootstrapServer: the bootstrap URL of the source strimzi server.
+		Destination bootstrapServer: the bootstrap server of the destination Kafka.
+		topicsPattern: the topic in strimzi that will be replicated. Wild card permitted. 
+		groupsPattern: the consumer groups that should be replicated. 
+
+		The following fields are useful but are not used in our labs:
+		replication.policy.class: org.apache.kafka.connect.mirror.IdentityReplicationPolicy. This will maintain the topics name is source and target without adding any prefix.
+
+
+
+3. Create the MM2 instance.   
 Login to the Openshift Console. 
 Go to "Installed Operators" -> IBM Event Streams -> Kafka Mirror Maker 2.  
 Click on "Create Kafka MirrorMaker2:.   
-You can use the sample [here](./mm2.yaml) as a guide. 
+Paste the CR (yaml file) you created in the above step. 
+Click on create.
 
-
-3. Check and change the following parameters in the CR 
-
-name - Name of the MM2 instance    
-
-bootstrapServer (source) - Bootstrap URL of the source Strimzi cluster. You can use this. 
-	`rajcluster-tok05-b3c-16x6-992844b4e64c83c3dbd5e7b5e2da5328-0000.jp-tok.containers.appdomain.cloud:31496`
-
-bootstrapServers (target) - Bootstrap URL of the target Event Stream Cluster. For the purpose of this lab, you can use a PLAIN connection.    
-	`minimal-backup-ibm-es-kp-bootstrap.cprajan-es2.svc:9092`
-
-topicsPattern - list of topics to be replicated.   
-
-groupsPattern: list of consumer groups to be replicated.  [ Use .* for all groups ]
-
-sourceConnector - add the following lines:   
->           sync.topic.acls.enabled: 'false'.  
->           replication.policy.class: org.apache.kafka.connect.mirror.IdentityReplicationPolicy
-
-This will maintain the topics name is source and target without adding any prefix.   
-
-checkpointConnector - add the following lines:   
->           emit.checkpoints.enabled: true  
->           refresh.groups.interval.seconds: 60  
->           sync.group.offsets.enabled: true  
->           replication.policy.class:    org.apache.kafka.connect.mirror.IdentityReplicationPolicy  
-
-4. Once the CR file is ready, click on create. This will create a MirrorMaker2 instance and it will also start replicating topics and consumer lags. 
+4. This will create a MirrorMaker2 instance and it will also start replicating topics and consumer lags. 
 
 5. Verify the replication (topics).   
 Check the EventStreams web console and a new topic should have been created. 
-Look for the replicated topic. 
+Look for the replicated topic.    
+A prefix will be added to the topic name.   
+
+![](./images/79.jpg)
 
 
 6. Verify the replication (consumer lags)
@@ -75,10 +68,12 @@ Check consumer lags in Event Streams.
 
 The new consumer group should appear and the offset lag should match with that of strimzi. 
 
-![](./images/23.png)
+![](./images/80.jpg)
 
 * Do a random check on the timestamp of a message. 
 
 ![](./images/24.png)
 
+
+Great. You have sucessfully replicated a topic and consumer group lags from Strimzi to Event Streams.   
 
