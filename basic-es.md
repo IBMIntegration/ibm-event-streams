@@ -29,7 +29,7 @@ This section provides the instructions for setting up the Kafka Client that will
 
 	If it’s not installed, download and install the Java Runtime. Use the [adoptium site to download Java](https://adoptium.net/)
 
-2.	Download the sample Kafka Client code [from here:](https://github.com/ibm-cloud-architecture/eda-tech-academy/blob/main/tech-jam/KafkaClient_20230407.zip) to be used on your local laptop.
+2.	Download the sample Kafka Client code from here:  [https://github.com/ibm-cloud-architecture/eda-tech-academy/blob/main/tech-jam/KafkaClient_20230407.zip](https://github.com/ibm-cloud-architecture/eda-tech-academy/blob/main/tech-jam/KafkaClient_20230407.zip). 
 
 3.	Unzip the downloaded Kafka Client (KafkaClient_YYYYMMDD.zip) into a folder: 
 
