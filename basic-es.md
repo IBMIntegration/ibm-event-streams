@@ -27,7 +27,7 @@ This section provides the instructions for setting up the Kafka Client that will
 
     ![](./images/65.png)
 
-	If it’s not installed, download and install the Java Runtime. Use the [adoptium site to download Java](https://adoptium.net/)
+	If it’s not installed, download and install the Java Runtime. Use the [IBM Semeru Runtimes Download site to download Java](https://developer.ibm.com/languages/java/semeru-runtimes/downloads/)
 
 2.	Download the sample Kafka Client code from here:  [https://github.com/ibm-cloud-architecture/eda-tech-academy/blob/main/tech-jam/KafkaClient_20230407.zip](https://github.com/ibm-cloud-architecture/eda-tech-academy/blob/main/tech-jam/KafkaClient_20230407.zip). 
 
