@@ -113,7 +113,7 @@ From the Event Stream home page, click on “Connect to this Cluster”.  Get th
 
 ## Test Producer / Consumer
 
-1.	Prepare the `config.properties` file located in `C:\TechJam\EventStreams_Lab\KafkaClient_20230407\` Check and change the following fields. The fields not mentioned here can be left default. 
+1.	Prepare the `config.properties` file located in `C:\TechJam\EventStreams_Lab\KafkaClient_20230407\`.  Make a copy of the config.properties (for example, call it config.properties.lab1) Check and change the following fields. The fields not mentioned here can be left default. 
 
     | Field	| Value |
     | --- | --- |
@@ -128,7 +128,7 @@ From the Event Stream home page, click on “Connect to this Cluster”.  Get th
     | ssl.truststore.password | Enter the Truststore password obtained. |
 
 
-    This is how your `config.properties` should look like after the changes. This is a sample. Do not copy and paste this contents. 
+    This is how your `config.properties.lab1` should look like after the changes. This is a sample. Do not copy and paste this contents. 
 
     ```sh
 	## Mandatory Section ##
@@ -197,7 +197,7 @@ From the Event Stream home page, click on “Connect to this Cluster”.  Get th
     
     ```sh
     cd C:\TechJam\EventStreams_Lab\KafkaClient_20230407\ 
-    java -jar KafkaClient.jar producer 10 config.properties
+    java -jar KafkaClient.jar producer 10 config.properties.lab1
     ```
 
     Check if the message is listed in the topic. In the Event Streams portal, go to Topics. Look for the topic that you created. Click on it. Then click on messages.  You should see the messages produced. 
@@ -210,7 +210,7 @@ From the Event Stream home page, click on “Connect to this Cluster”.  Get th
 3. Test consuming message. 
 
     ```sh
-    java -jar KafkaClient.jar consumer config.properties
+    java -jar KafkaClient.jar consumer config.properties.lab1
     ```
 
     Messages should be consumed correctly.  Message content should be displayed correctly. Press CTRL-C to stop the consumer. 
