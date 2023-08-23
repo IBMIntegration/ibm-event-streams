@@ -27,7 +27,7 @@ It is also possible to integrate Event Streams metrics with external monitoring 
 
 ![](images/50.jpg)
 
-3. Install the 'oc' CLIs in your laptop (If Not done yet)   
+3. Install the 'oc' CLIs in your laptop (If not done yet)   
 
 Download the 'oc' CLI from your cluster and install it if you have not installed it yet.  
 
