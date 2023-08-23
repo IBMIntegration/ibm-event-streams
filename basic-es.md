@@ -202,8 +202,7 @@ From the Event Stream home page, click on “Connect to this Cluster”.  Get th
 
     Check if the message is listed in the topic. In the Event Streams portal, go to Topics. Look for the topic that you created. Click on it. Then click on messages.  You should see the messages produced. 
 
-    !!! Warning
-        The messages content may not be displayed correctly in the portal due to binary serialization with Avro.
+
     
     ![](./images/73.png){ width="1200" }
 
