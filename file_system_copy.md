@@ -34,6 +34,7 @@ In the Openshift Console, Go to the event-automation namespace and look for the 
 > e.g. /var/lib/kafka/data/kafka-log0/.      
 	![](images/76.jpg)
 	
+![](images/55.jpg)
 
 5. Log in to one of the brokers and check for files in the brokers.  
 
@@ -87,7 +88,8 @@ This is how the output should roughly look like:
 		-rw-r--r--  1 rajan  staff         8 Aug 20 13:24 leader-epoch-checkpoint
 		-rw-r--r--  1 rajan  staff        43 Aug 20 13:24 partition.metadata
 
-8. IMPORTANT STEP: Clean up the copied files.   
+8. **IMPORTANT STEP:** Clean up the copied files.   
+“oc rsync” does not provide a mechanism to filter files that needs to be copied. So, it has to be done manually. Files like checkpoint and metadata will be created by Kafka as needed. So, delete them.
 We don't need all the copied files. We only need files with the following extensions. Delete all other files in the backed up folder.   
 
 		*.index  
