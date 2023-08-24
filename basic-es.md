@@ -119,7 +119,7 @@ From the Event Stream home page, click on “Connect to this Cluster”.  Get th
     | --- | --- |
     |enableschemaavro	| false (as we have schema attached to the topic) |
     | bootstrap.servers	| Enter the URL obtained in previous section e.g. es1-kafka-bootstrap-cp4i.apps.ocp46.tec.uk.ibm.com:443 |
-    | sasl.jaas.config	| Paste this string. Replace the Username and Password.  org.apache.kafka.common.security.scram.ScramLoginModule required username='<SCRAM_USER>' password='<SCRAM_PASSWORD>'; |
+    | sasl.jaas.config	| Paste this string. Replace the Username and Password.  org.apache.kafka.common.security.scram.ScramLoginModule required username=\'\<SCRAM_USER>' password=\'\<SCRAM_PASSWORD>'; |
     | sasl.mechanism	| SCRAM-SHA-512 |
     | security.protocol	 |SASL_SSL |
     | topic	| Topic created previously. E.g. jam60-topic1 |
